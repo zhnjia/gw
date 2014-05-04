@@ -351,7 +351,17 @@ function weeksElapse(time) {
     today = new Date();
     var elapse = (today.getTime() - time) / 1000;
     var days = Math.floor(elapse / 86400);
-    alert("已孕[" + Math.floor(days / 7) + "]周[" + (days % 7) + "]天" );
+    var message = "已孕 [ " + Math.floor(days / 7) + " ] 周 [ " + (days % 7) + " ] 天";    
+    alertify.set({
+        labels : {
+            ok     : "OK",
+            cancel : "Cancel"
+            },
+        delay : 5000,
+        buttonReverse : false,
+        buttonFocus   : "ok"
+    });
+    alertify.alert(message);
 }
 
 f_tcalAddOnload (f_tcalInit);
